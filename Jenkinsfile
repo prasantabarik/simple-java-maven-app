@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
+        maven 'Maven'
     } 
     environment {
         NEXUS_VERSION = "nexus3"
