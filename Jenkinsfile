@@ -9,7 +9,7 @@ pipeline {
         NEXUS_URL = "192.168.99.100:8081"
         NEXUS_REPOSITORY = "maven-nexus-repo"
         NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
-        PATH="C:\Program Files\Git\bin"
+      
    }
     options {
         skipStagesAfterUnstable()
@@ -17,7 +17,6 @@ pipeline {
     stages {
        stage('Build') {
            steps {
-                WithEnv[(PATH)]
                 sh 'mvn -B -DskipTests clean package'
             }
         }
