@@ -17,7 +17,7 @@ pipeline {
     stages {
        stage('Build') {
            steps {
-                sh 'mvn -B -DskipTests clean package'
+                bat 'mvn -B -DskipTests clean package'
             }
         }
        stage("Publish to Nexus Repository Manager") {
@@ -57,12 +57,12 @@ pipeline {
         }
         stage('SonarAnalysis') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.99.100:9000 -Dsonar.login=admin -Dsonar.password=admin'
+                bat 'mvn sonar:sonar -Dsonar.host.url=http://192.168.99.100:9000 -Dsonar.login=admin -Dsonar.password=admin'
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
@@ -72,7 +72,7 @@ pipeline {
         }
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                bat './jenkins/scripts/deliver.sh' 
             }
         }
     }
