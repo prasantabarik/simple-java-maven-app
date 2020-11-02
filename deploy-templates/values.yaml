@@ -1,0 +1,17 @@
+name: simple-java-maven-app
+namespace: ""
+cdPipelineName: ""
+cdPipelineStageName: ""
+dnsWildcard: 59ae6b648ca3437aae3a.westeurope.aksapp.io
+framework: java11
+
+database:
+  required: false
+
+
+ingress:
+  required: false
+
+image:
+  name: simple-java-maven-app
+  version: latest
